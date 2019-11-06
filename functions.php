@@ -6,7 +6,7 @@ if (!function_exists('fs_documento_new_codigo')) {
             case 'eneboo':
                 return $codejercicio . str_pad($codserie, 2, '0', STR_PAD_LEFT) . str_pad($numero, 6, '0', STR_PAD_LEFT);
             case '0-NUM':
-                return str_pad($numero, 12, '0', STR_PAD_LEFT);
+                return $codserie . str_pad($numero, 6, '0', STR_PAD_LEFT);
             case 'NUM':
                 return (string) $codserie . $numero;
             case 'SERIE-YY-0-NUM':
@@ -17,7 +17,7 @@ if (!function_exists('fs_documento_new_codigo')) {
                 }
                 return $codserie . substr($codejercicio, -2) . $numero;
         }
-        /// TIPO + EJERCICIO + SERIE + NÚMERO
+        /// TIPO + EJERCICIO + SERIE + Nï¿½MERO
         return strtoupper(substr($tipodoc, 0, 3)) . $codejercicio . $codserie . $numero . $sufijo;
     }
 }
